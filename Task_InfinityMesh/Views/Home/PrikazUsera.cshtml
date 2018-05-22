@@ -1,0 +1,63 @@
+﻿<link href="~/Content/custom.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "PrikazUsera";
+}
+
+@using Task_InfinityMesh.ViewModels
+@model Task_InfinityMesh.ViewModels.UserListVM
+@using PagedList
+@using PagedList.Mvc
+
+<div class="">
+    <h1>The user list</h1>
+    <hr />
+
+
+    <div class="tabela">
+
+        <div class="inner-addon left-addon">
+            @using (Html.BeginForm("PrikazUsera","Home",FormMethod.Get,new { id = "searchForma" }))
+            {
+                <i class="glyphicon glyphicon-search"></i>
+                <input type="text" class="form-control" value="@Model.searchParam" name="searchParam" style="width:300px;border-radius:20px;" placeholder="Search by name or email"/>
+
+                <div class="listNumber">
+                    @Html.DropDownListFor(model => model.ItemsPerPage, Model.ItemsPerPageList, new { @class = "form-control", @style = "", onchange = "getElementById(\"searchForma\").submit()" })
+                </div>
+            }
+        </div>
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>Age</td>
+                    <td>Email</td>
+                    <td>Blogs</td>
+                    <td>Profile</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (UserListVM.UserInfo x in Model.allUsersPaged)
+                {
+                    <tr>
+                        <td>@x.Name</td>
+                        <td>@x.Age</td>
+                        <td>@x.Email</td>
+                        <td>@x.Blogs</td>
+                        <td>@Html.ActionLink("View", "UserDetails", "Home", new { _userId=x.Id }, new { })</td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+        <div class="paginglista">
+            @Html.PagedListPager(Model.allUsersPaged, page => Url.Action("PrikazUsera", new { page, Model.ItemsPerPage, Model.searchParam }))
+        </div>
+    </div>
+</div>
+

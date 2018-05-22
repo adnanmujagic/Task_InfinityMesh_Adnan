@@ -1,0 +1,68 @@
+﻿.inner-addon {
+    position: relative;
+}
+
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 8px;
+    padding-right:5px;
+    pointer-events: none;
+}
+
+.left-addon .glyphicon {
+    left: 0px;
+}
+
+.right-addon .glyphicon {
+    right: 0px;
+}
+
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.tabela{
+    position:relative;
+}
+.paginglista{
+    position:absolute;
+    right:0px;
+    margin-bottom:10px;
+}
+.listNumber{
+    position:absolute;
+    right:0px;
+    top:0px;
+}
+
+.container{
+    padding:0px 80px 0px 80px;
+}
+
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    width: auto;
+    padding: 0 10px;
+}
+
+.the-fieldset {
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+}
+
+.input-Blog {
+    margin-bottom: 10px;
+}
+
+.text-danger{
+    color:red;
+}
